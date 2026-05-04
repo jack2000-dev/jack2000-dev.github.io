@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jack2000</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root[data-theme="dark"] {
+      --bg:      #0d1117;
+      --surface: #161b22;
+      --text:    #e6edf3;
+      --muted:   #8b949e;
+      --border:  #30363d;
+      --accent:  #58a6ff;
+      --accent-h:#79c0ff;
+    }
+    :root[data-theme="light"] {
+      --bg:      #ffffff;
+      --surface: #f6f8fa;
+      --text:    #24292f;
+      --muted:   #57606a;
+      --border:  #d0d7de;
+      --accent:  #0969da;
+      --accent-h:#0550ae;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, "IBM Plex Serif", serif;
+      font-size: 15px;
+      line-height: 1.65;
+      background: var(--bg);
+      color: var(--text);
+      padding: 4rem 1.5rem 5rem;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .wrap {
+      max-width: 660px;
+      margin: 0 auto;
+    }
+
+    /* ── Header ── */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 2.75rem;
+    }
+
+    .site-title {
+      font-size: 1.6rem;
+      font-weight: 600;
+      letter-spacing: -0.025em;
+      line-height: 1.2;
+    }
+
+    .site-sub {
+      margin-top: 0.3rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    /* ── Theme toggle ── */
+    .toggle {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.7rem;
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 0.28rem 0.6rem;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 0.3rem;
+      transition: color 0.15s, border-color 0.15s;
+      white-space: nowrap;
+    }
+    .toggle:hover {
+      color: var(--text);
+      border-color: var(--text);
+    }
+
+    /* ── Divider ── */
+    hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 2rem 0;
+    }
+
+    /* ── Section label ── */
+    .label {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    /* ── Project list ── */
+    .projects {
+      list-style: none;
+    }
+
+    .project {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: baseline;
+      column-gap: 1.5rem;
+      padding: 0.85rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .projects .project:first-child {
+      border-top: 1px solid var(--border);
+    }
+
+    .project-name {
+      font-size: 0.93rem;
+      font-weight: 500;
+    }
+    .project-name a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .project-name a:hover {
+      color: var(--accent-h);
+      text-decoration: underline;
+    }
+
+    .project-desc {
+      margin-top: 0.15rem;
+      font-size: 0.83rem;
+      color: var(--muted);
+    }
+
+    .project-tag {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.68rem;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    /* ── Footer ── */
+    footer {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+    footer a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+    footer a:hover { color: var(--accent); }
+
+    /*
+     * ── Contact section (uncomment to enable) ──────────────────────────
+     *
+     * <hr>
+     * <section>
+     *   <p class="label">Contact</p>
+     *   <p style="font-size:0.9rem">
+     *     <a href="mailto:you@example.com">you@example.com</a>
+     *   </p>
+     * </section>
+     *
+     * ───────────────────────────────────────────────────────────────────
+     */
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <header>
+      <div>
+        <div class="site-title">JACK2000-dev</div>
+        <div class="site-sub">portal</div>
+      </div>
+      <button class="toggle" id="toggle" aria-label="Toggle color theme">light</button>
+    </header>
+
+    <hr>
+
+    <main>
+      <p class="label">Projects</p>
+      <ul class="projects">
+
+        <li class="project">
+          <div>
+            <div class="project-name"><a href="#">Project Alpha</a></div>
+            <div class="project-desc">Short description of what this docs site covers.</div>
+          </div>
+          <span class="project-tag">docs</span>
+        </li>
+
+        <li class="project">
+          <div>
+            <div class="project-name"><a href="#">Project Beta</a></div>
+            <div class="project-desc">Short description of what this docs site covers.</div>
+          </div>
+          <span class="project-tag">docs</span>
+        </li>
+
+        <li class="project">
+          <div>
+            <div class="project-name"><a href="#">Project Gamma</a></div>
+            <div class="project-desc">Short description of what this docs site covers.</div>
+          </div>
+          <span class="project-tag">docs</span>
+        </li>
+
+      </ul>
+    </main>
+
+    <hr>
+
+    <footer>jack2000-dev</footer>
+
+  </div>
+
+  <script>
+    (function () {
+      var html = document.documentElement;
+      var btn  = document.getElementById('toggle');
+
+      function apply(theme) {
+        html.setAttribute('data-theme', theme);
+        btn.textContent = theme === 'dark' ? 'light' : 'dark';
+        try { localStorage.setItem('theme', theme); } catch (_) {}
+      }
+
+      // Priority: saved → prefers-color-scheme → dark
+      var saved = null;
+      try { saved = localStorage.getItem('theme'); } catch (_) {}
+
+      if (saved === 'dark' || saved === 'light') {
+        apply(saved);
+      } else if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+        apply('light');
+      } else {
+        apply('dark');
+      }
+
+      btn.addEventListener('click', function () {
+        apply(html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+      });
+    }());
+  </script>
+</body>
+</html>
